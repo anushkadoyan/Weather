@@ -1,18 +1,55 @@
-.App {
-  text-align: center;
+html {
+  height: 100vh;
 }
+
+body, #root, .App {
+  height: 100%;
+}
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
+.header {
+  background-color: rgb(10, 170, 233);
+  height: 20px;
   padding: 20px;
   color: white;
 }
+
+.flex {
+  display: flex;
+
+  &-column {
+    flex-direction: column;
+  }
+
+  &-row {
+    flex-direction: row;
+  }
+
+  @for $i from 1 through 5 {
+    &-#{$i} {
+      flex: $i;
+    }
+  }
+}
+
+
+
+.main-container {
+  height: calc(100% - 60px);
+}
+
+// .today {
+//   flex: 4;
+// }
+
+// .other-days {
+//   flex: 1;
+// }
 
 .App-title {
   font-size: 1.5em;
