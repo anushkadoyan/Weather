@@ -43,18 +43,30 @@ body, #root, .App {
   color: white;
 }
 
+.day {
+  /* background: white; */
+  margin: 5px;
+  background-color: rgba(0, 0, 0, 0.35);
+  /* opacity: 0.5; */
+  color: white;
+  font-size: 4vh;
+  padding: 10px;
+  text-align: right;
+}
 
 .temp {
   font-size: 20vh;
+  display: inline-block;
 }
 
 
 
 .main-container {
-  height: calc(100% - 60px);
+  height: calc(100% - 100px);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  padding:20px;
 }
 
 
