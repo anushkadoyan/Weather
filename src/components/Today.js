@@ -14,7 +14,7 @@ class Today extends Component {
 
     if(forecast) {
       var graphList = forecast.map(day=> {
-        return {time:moment(day.dt_txt).format('hh:mm A'), temp: Math.floor(day.main.temp)}
+        return {time:moment.unix(day.dt).format('hh:mm A'), temp: Math.floor(day.main.temp)}
       })
     }
     

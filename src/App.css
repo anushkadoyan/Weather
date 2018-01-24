@@ -99,7 +99,7 @@ body, #root, .App {
 
 .city-name {
   font-size: 6vh;
-  padding: 0px 20px; }
+  padding-right: 20px; }
 
 .recharts-surface {
   padding: 10px; }

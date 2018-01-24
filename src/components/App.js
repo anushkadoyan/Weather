@@ -29,13 +29,17 @@ class App extends Component {
       .catch(error => console.log(error));
     axios.get(weatherForecast)
       .then(response => {
-
+        console.log(response.data)
        let hourlyList = response.data.list;
        var currentDay = moment();
        var dayChunks = [];
        var day=[];
        hourlyList.forEach(time=> {
-        if(currentDay.isSame(time.dt_txt, 'day')) {
+        var timestamp = moment.unix(time.dt);
+        console.log("timestamp", timestamp.format("MMMM Do YYYY, h:mm:ss a") );
+        console.log("currentDay", currentDay.format("MMMM Do YYYY, h:mm:ss a") );
+        
+        if(currentDay.isSame( moment.unix(time.dt), 'day')) {
           day.push(time);
         } else {
             dayChunks.push(day);
@@ -43,6 +47,7 @@ class App extends Component {
             day=[time];
           }
        });
+       console.log(dayChunks)
        
        this.setState({
          hourlyWeatherToday: dayChunks[0],
