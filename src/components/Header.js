@@ -15,7 +15,6 @@ class Header extends Component {
     if(this.state.search.length>0 && /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(this.state.search)) {
       this.props.onSearchChange(this.state.search)
     }
-
   }
 
   handleChange(value) {
