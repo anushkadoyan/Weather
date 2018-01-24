@@ -21,8 +21,8 @@ class App extends Component {
 
   handleSearchChange(search) {
     this.setState({firstTime:false});
-    let weatherNow = "http://api.openweathermap.org/data/2.5/weather?zip="+search+",us&appid=f78d4401108f0b44150be20d3e4e7146&units=imperial";
-    let weatherForecast = "http://api.openweathermap.org/data/2.5/forecast?zip="+search+",us&appid=f78d4401108f0b44150be20d3e4e7146&units=imperial";
+    let weatherNow = "https://api.openweathermap.org/data/2.5/weather?zip="+search+",us&appid=f78d4401108f0b44150be20d3e4e7146&units=imperial";
+    let weatherForecast = "https://api.openweathermap.org/data/2.5/forecast?zip="+search+",us&appid=f78d4401108f0b44150be20d3e4e7146&units=imperial";
    
     // call the api for the weather NOW and the feather for 5 days
     axios.get(weatherNow)
