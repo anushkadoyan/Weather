@@ -11,15 +11,11 @@ class Today extends Component {
 
   render() {
     const {weatherNow, forecast} = this.props;
-    if(weatherNow.weather!==undefined) {
-      var background = require('../../public/'+weatherNow.weather[0].main.toLowerCase() + '-day.gif');
-    } 
+
     if(forecast) {
-      // console.log("today forecast", forecast)
       var graphList = forecast.map(day=> {
         return {time:moment(day.dt_txt).format('hh:mm A'), temp: Math.floor(day.main.temp)}
       })
-      // console.log(graphList)
     }
     
     
@@ -30,11 +26,14 @@ class Today extends Component {
         </div>
         <br/>
         {weatherNow.weather? weatherNow.weather[0].main: ''}
-        {/* <div className="city-name">
-          {weatherNow? weatherNow.name: ''}
-        </div> */}
-        <div className="graph">
-          {weatherNow.main? <SimpleLineChart list={graphList}/>: ''}
+       
+        <div className="bottom-container flex flex-between">
+          <div className="graph">
+            {weatherNow.main? <SimpleLineChart list={graphList}/>: ''}
+          </div>
+          <div className="city-name">
+            {weatherNow? weatherNow.name: ''}
+          </div>
         </div>
         {/* {weatherNow.main? weatherNow.main.temp_min: ''}
         {weatherNow.main? weatherNow.main.temp_max: ''}

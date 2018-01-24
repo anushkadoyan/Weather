@@ -1,3 +1,5 @@
+$primary-color: #8884d8;
+
 html {
   height: 100vh;
 }
@@ -8,7 +10,11 @@ body, #root, .App {
   font-family: 'Josefin Sans', sans-serif !important;
 }
 
-@media(max-width:425px) {
+.App {
+  background-position: center;
+}
+
+@media(max-width:800px) {
   .main-container {
     position: relative;
     flex-direction: column;
@@ -24,8 +30,30 @@ body, #root, .App {
   }
 }
 
+.flex {
+  display: flex;
+
+  &-column {
+    flex-direction: column;
+  }
+
+  &-row {
+    flex-direction: row;
+  }
+
+  &-between {
+    justify-content: space-between;
+  }
+
+  @for $i from 1 through 5 {
+    &-#{$i} {
+      flex: $i;
+    }
+  }
+}
+
 .header {
-  background-color: #8884d8;
+  background-color: $primary-color;
   padding: 10px;
   position: relative;
   color: white;
@@ -57,22 +85,19 @@ body, #root, .App {
 
 }
 
-.flex {
-  display: flex;
+.main-container {
+  height: calc(100% - 90px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding:20px;
+}
 
-  &-column {
-    flex-direction: column;
-  }
-
-  &-row {
-    flex-direction: row;
-  }
-
-  @for $i from 1 through 5 {
-    &-#{$i} {
-      flex: $i;
-    }
-  }
+.bottom-container {
+  position: absolute;
+  width: 100%;
+  align-items: flex-end;
+  bottom: 0;
 }
 
 .today {
@@ -80,13 +105,15 @@ body, #root, .App {
   position: relative;
 }
 
+.other-days {
+  overflow: auto;
+}
+
 .day {
-  /* background: white; */
   margin: 5px 0px;
   background-color: rgba(0, 0, 0, 0.35);
-  /* opacity: 0.5; */
   color: white;
-  font-size: 4vh;
+  font-size: 20px;
   padding: 10px;
   text-align: right;
 }
@@ -97,27 +124,30 @@ body, #root, .App {
 }
 
 .city-name {
-  position: absolute;
-  bottom: 0;
   font-size: 6vh;
-}
-
-.graph {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  padding: 0px 20px;
 }
 
 .recharts-surface {
   padding:10px;
 }
 
-.main-container {
-  height: calc(100% - 90px);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding:20px;
+.first-time {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 20%;
+  text-align: center;
+
+  button {
+    height: 30px;
+    width: 100px;
+    border: 1px solid $primary-color;
+    margin: 0px 5px;
+  }
+  button:hover {
+    background: $primary-color;
+    cursor: pointer;
+  }
 }
 
 

@@ -6,7 +6,10 @@ body, #root, .App {
   font-family: 'Heebo', sans-serif !important;
   font-family: 'Josefin Sans', sans-serif !important; }
 
-@media (max-width: 425px) {
+.App {
+  background-position: center; }
+
+@media (max-width: 800px) {
   .main-container {
     position: relative;
     flex-direction: column; }
@@ -16,6 +19,25 @@ body, #root, .App {
     text-align: right !important; }
   .graph {
     display: none; } }
+
+.flex {
+  display: flex; }
+  .flex-column {
+    flex-direction: column; }
+  .flex-row {
+    flex-direction: row; }
+  .flex-between {
+    justify-content: space-between; }
+  .flex-1 {
+    flex: 1; }
+  .flex-2 {
+    flex: 2; }
+  .flex-3 {
+    flex: 3; }
+  .flex-4 {
+    flex: 4; }
+  .flex-5 {
+    flex: 5; }
 
 .header {
   background-color: #8884d8;
@@ -43,34 +65,31 @@ body, #root, .App {
     border-left: 1px solid #e8e8e8;
     border-radius: 0px 3px 3px 0px; }
 
-.flex {
-  display: flex; }
-  .flex-column {
-    flex-direction: column; }
-  .flex-row {
-    flex-direction: row; }
-  .flex-1 {
-    flex: 1; }
-  .flex-2 {
-    flex: 2; }
-  .flex-3 {
-    flex: 3; }
-  .flex-4 {
-    flex: 4; }
-  .flex-5 {
-    flex: 5; }
+.main-container {
+  height: calc(100% - 90px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 20px; }
+
+.bottom-container {
+  position: absolute;
+  width: 100%;
+  align-items: flex-end;
+  bottom: 0; }
 
 .today {
   color: white;
   position: relative; }
 
+.other-days {
+  overflow: auto; }
+
 .day {
-  /* background: white; */
   margin: 5px 0px;
   background-color: rgba(0, 0, 0, 0.35);
-  /* opacity: 0.5; */
   color: white;
-  font-size: 4vh;
+  font-size: 20px;
   padding: 10px;
   text-align: right; }
 
@@ -79,21 +98,22 @@ body, #root, .App {
   display: inline-block; }
 
 .city-name {
-  position: absolute;
-  bottom: 0;
-  font-size: 6vh; }
-
-.graph {
-  position: absolute;
-  bottom: 0;
-  left: 0; }
+  font-size: 6vh;
+  padding: 0px 20px; }
 
 .recharts-surface {
   padding: 10px; }
 
-.main-container {
-  height: calc(100% - 90px);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 20px; }
+.first-time {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 20%;
+  text-align: center; }
+  .first-time button {
+    height: 30px;
+    width: 100px;
+    border: 1px solid #8884d8;
+    margin: 0px 5px; }
+  .first-time button:hover {
+    background: #8884d8;
+    cursor: pointer; }
