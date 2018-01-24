@@ -5,7 +5,6 @@ import '../App.css';
 class OtherDays extends Component {
   constructor(props) {
     super(props);
-    console.log("other days", props);
     this.state = {forecast:''};
   }
 

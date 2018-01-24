@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import '../App.css';
 import Header from './Header';
 import Today from './Today';
@@ -11,7 +12,8 @@ class App extends Component {
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.state= {
       weatherNow:'',
-      weatherForecast:''
+      hourlyWeatherToday:'',
+      hourlyWeatherOtherDays:''
     };
   }
 
@@ -24,22 +26,28 @@ class App extends Component {
       .then(response => this.setState({weatherNow:response.data}))
       .catch(error => console.log(error));
     axios.get(weatherForecast)
-      .then(response =>this.setState({weatherForecast:response.data}))
+      .then(response => {
+       let hourlyList = response.data.list;
+       hourlyList = hourlyList.filter(item=> {
+        return moment(item.dt_txt).isSame(moment(), 'day');
+       });
+        this.setState({hourlyWeatherToday:hourlyList})
+      })
       .catch(error => console.log(error));
 
   }
 
   render() {
     if(this.state.weatherNow.weather!=undefined) {
-      console.log(this.state.weatherNow.weather[0]);
-      var background = require('../../public/'+this.state.weatherNow.weather[0].main.toLowerCase() + '-night.gif');
+      // console.log(this.state.weatherNow.weather[0]);
+      var background = require('../../public/'+this.state.weatherNow.weather[0].main.toLowerCase() + '-day.gif');
     } 
     return (
       <div className="App">
         <Header onSearchChange={this.handleSearchChange}/>
-        <div className = "flex main-container" style={{backgroundImage: "url(" + background + ")"}}>
-          <Today weatherNow={this.state.weatherNow} forecast={this.state.weatherForecast}/>
-          <OtherDays forecast={this.state.weatherForecast}/>
+        <div className = "flex main-container" style={{backgroundImage: "linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) ), url(" + background + ")"}}>
+          <Today weatherNow={this.state.weatherNow} forecast={this.state.hourlyWeatherToday}/>
+          <OtherDays forecast={this.state.hourlyWeatherOtherDays}/>
         </div>
       </div>
     );

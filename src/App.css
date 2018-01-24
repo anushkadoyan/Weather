@@ -7,23 +7,41 @@ body, #root, .App {
   font-family: 'Josefin Sans', sans-serif !important; }
 
 @media (max-width: 425px) {
-  .other-days {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: 0; }
   .main-container {
-    position: relative; } }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px; }
+    position: relative;
+    flex-direction: column; }
+  .today {
+    flex: 1 !important; }
+  .search-bar {
+    text-align: right !important; }
+  .graph {
+    display: none; } }
 
 .header {
-  background-color: #005171;
-  height: 20px;
-  padding: 20px;
+  background-color: #8884d8;
+  padding: 10px;
+  position: relative;
   color: white; }
+
+.header-title {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  font-size: 20px; }
+
+.search-bar {
+  text-align: center; }
+  .search-bar input {
+    height: 30px;
+    vertical-align: bottom;
+    border: 0px;
+    border-radius: 3px 0px 0px 3px;
+    padding: 0px 10px; }
+  .search-bar button {
+    height: 30px;
+    border: 0px;
+    border-left: 1px solid #e8e8e8;
+    border-radius: 0px 3px 3px 0px; }
 
 .flex {
   display: flex; }
@@ -43,11 +61,12 @@ body, #root, .App {
     flex: 5; }
 
 .today {
-  color: white; }
+  color: white;
+  position: relative; }
 
 .day {
   /* background: white; */
-  margin: 5px;
+  margin: 5px 0px;
   background-color: rgba(0, 0, 0, 0.35);
   /* opacity: 0.5; */
   color: white;
@@ -59,21 +78,22 @@ body, #root, .App {
   font-size: 20vh;
   display: inline-block; }
 
+.city-name {
+  position: absolute;
+  bottom: 0;
+  font-size: 6vh; }
+
+.graph {
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+
+.recharts-surface {
+  padding: 10px; }
+
 .main-container {
-  height: calc(100% - 100px);
+  height: calc(100% - 90px);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   padding: 20px; }
-
-.App-title {
-  font-size: 1.5em; }
-
-.App-intro {
-  font-size: large; }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg); }
-  to {
-    transform: rotate(360deg); } }

@@ -26,10 +26,10 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
-        <span>
+        <span className="header-title">
           Weather
         </span>
-        <form onSubmit={this.handleSubmit}>
+        <form className="search-bar" onSubmit={this.handleSubmit}>
           <input type="number" value={this.state.value} onChange={event=>this.handleChange(event.target.value)} />
           <button type="submit">Search</button>
         </form>
