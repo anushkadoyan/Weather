@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import WeatherDetails from './WeatherDetails'
 import moment from 'moment';
 import '../App.css';
 
@@ -16,14 +17,18 @@ class Day extends Component {
       min = Math.floor(Math.min(min,day.main.temp));
       max = Math.floor(Math.max(max,day.main.temp));
     }
-    console.log(days)
+    var averageDay = days[Math.floor(days.length/2)];
+    console.log(averageDay)
     return (
       <div className="day flex-1">
-        <div className="flex flex-between">
-          <div>{moment(days[0].dt_txt).format("dddd")}</div>
+        <div className = "flex flex-between day-header">
+          <div className = "day-of-week">{moment.unix(days[0].dt).format("dddd")}</div>
           <div>{min+'° - '+max+'°'}</div>
         </div>
-        <img src={'http://openweathermap.org/img/w/'+days[Math.floor(days.length/2)].weather[0].icon+'.png'}/>
+        <div className = "flex flex-between">
+          <WeatherDetails weather={averageDay}/>
+          <img class="weather-icon" src={'http://openweathermap.org/img/w/'+averageDay.weather[0].icon+'.png'}/>
+        </div>
       </div>
     );
   }

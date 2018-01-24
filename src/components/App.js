@@ -25,20 +25,19 @@ class App extends Component {
     let weatherForecast = "http://api.openweathermap.org/data/2.5/forecast?zip="+search+",us&appid=f78d4401108f0b44150be20d3e4e7146&units=imperial";
    
     axios.get(weatherNow)
-      .then(response => this.setState({weatherNow:response.data}))
+      .then(response => {
+        console.log(response.data)
+
+        this.setState({weatherNow:response.data})
+      })
       .catch(error => console.log(error));
     axios.get(weatherForecast)
       .then(response => {
-        console.log(response.data)
        let hourlyList = response.data.list;
        var currentDay = moment();
        var dayChunks = [];
        var day=[];
        hourlyList.forEach(time=> {
-        var timestamp = moment.unix(time.dt);
-        console.log("timestamp", timestamp.format("MMMM Do YYYY, h:mm:ss a") );
-        console.log("currentDay", currentDay.format("MMMM Do YYYY, h:mm:ss a") );
-        
         if(currentDay.isSame( moment.unix(time.dt), 'day')) {
           day.push(time);
         } else {
@@ -47,13 +46,10 @@ class App extends Component {
             day=[time];
           }
        });
-       console.log(dayChunks)
-       
        this.setState({
          hourlyWeatherToday: dayChunks[0],
          hourlyWeatherOtherDays:  dayChunks.slice(1, dayChunks.length)
         })
-       
       })
       .catch(error => console.log(error));
   }
@@ -63,7 +59,13 @@ class App extends Component {
       let icon = this.state.weatherNow.weather[0].icon;
       let nightOrDay = icon[icon.length-1];
       let backgroundTime = nightOrDay==='n'? '-night.gif':'-day.gif';
-      var background = require('../images/'+this.state.weatherNow.weather[0].main.toLowerCase() + backgroundTime);
+      try {
+        var background = require('../images/'+this.state.weatherNow.weather[0].main.toLowerCase() + backgroundTime);
+      } catch(error) {
+        var background = require('../images/first-time.gif');
+        
+        console.log(error)
+      }
     } 
     var firstTimeBackround = require('../images/first-time.gif');
     

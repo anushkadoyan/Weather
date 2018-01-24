@@ -28,6 +28,22 @@ body, #root, .App {
   .graph {
     display: none;
   }
+  .temp {
+    font-size: calc(10vh + 5vw) !important;
+  }
+  .date {
+    position: absolute !important;
+    bottom: 3px !important;
+    right: 0px !important;
+    padding: 0px !important;
+    font-size: 4vh !important;
+  }
+  .city-name {
+    font-size: 4vh !important;
+  }
+  .weather-details {
+    line-height: 1.2 !important;
+  }
 }
 
 .flex {
@@ -118,13 +134,47 @@ body, #root, .App {
   text-align: right;
 }
 
+.day-header {
+  padding-bottom: 10px;
+}
+
+.day-of-week {
+  font-size: 30px;
+}
+
 .temp {
   font-size: 20vh;
   display: inline-block;
 }
 
+.date {
+  font-size: 5vh;
+  padding: 10px 20px;
+}
+
+.sun {
+  img {
+    width: 50px;
+    display: block;
+  }
+}
+
+.wind span {
+  display: inline-block;
+}
+
+.weather-icon {
+  height: 50px;
+}
+
+.weather-details {
+  font-size: 20px;
+  line-height: 2;
+  text-align: left;
+}
+
 .city-name {
-  font-size: 6vh;
+  font-size: 5vh;
   padding-right: 20px;
 }
 

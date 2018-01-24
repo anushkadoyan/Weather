@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import SimpleLineChart from './SimpleLineChart';
 import moment from 'moment';
+import SimpleLineChart from './SimpleLineChart';
+import WeatherDetails from './WeatherDetails'
 import '../App.css';
 
 class Today extends Component {
@@ -17,16 +18,23 @@ class Today extends Component {
         return {time:moment.unix(day.dt).format('hh:mm A'), temp: Math.floor(day.main.temp)}
       })
     }
+    var sunrise = require('../images/sunrise.png');
+    var sunset = require('../images/sunset.png');
+    
     
     
     return (
       <div className="today flex-4">
-        <div className="temp">
-          {weatherNow.main? Math.floor(weatherNow.main.temp)+'°': ''}
-        </div>
+        <div className="temp-and-date flex flex-between">
+          <div className="temp">
+            {weatherNow.main? Math.floor(weatherNow.main.temp)+'°': ''}
+          </div>
+          <div className="date">
+            {moment().format('ll')}
+          </div>
+        </div>          
         <br/>
-        {weatherNow.weather? weatherNow.weather[0].main: ''}
-       
+        <WeatherDetails weather={weatherNow}/>
         <div className="bottom-container flex flex-between">
           <div className="graph">
             {weatherNow.main? <SimpleLineChart list={graphList}/>: ''}
