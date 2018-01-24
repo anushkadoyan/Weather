@@ -33,10 +33,10 @@ Converting an array into chunks of arrays
 
 ### Screenshots
 
-<img src="https://github.com/anushkadoyan/Weather/blob/master/src/images/screenshots/welcome-screen.png" width="400">
-<img src="https://github.com/anushkadoyan/Weather/blob/master/src/images/screenshots/full-screen.png" width="400">
-<img src="https://github.com/anushkadoyan/Weather/blob/master/src/images/screenshots/different-background.png" width="400">
-<img src="https://github.com/anushkadoyan/Weather/blob/master/src/images/screenshots/mobile.png" width="400">
+<img src="https://github.com/anushkadoyan/Weather/blob/master/src/images/screenshots/welcome-screen.png" width="800">
+<img src="https://github.com/anushkadoyan/Weather/blob/master/src/images/screenshots/full-screen.png" width="800">
+<img src="https://github.com/anushkadoyan/Weather/blob/master/src/images/screenshots/different-background.png" width="800">
+<img src="https://github.com/anushkadoyan/Weather/blob/master/src/images/screenshots/mobile.png" width="800">
 
 
 
