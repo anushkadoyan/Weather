@@ -6,6 +6,15 @@ body, #root, .App {
   font-family: 'Heebo', sans-serif !important;
   font-family: 'Josefin Sans', sans-serif !important; }
 
+@media (max-width: 425px) {
+  .other-days {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0; }
+  .main-container {
+    position: relative; } }
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px; }
