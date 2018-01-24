@@ -9,7 +9,6 @@ class OtherDays extends Component {
 
   render() {
     const {weather} = this.props;
-    console.log(this.props)
     return (
       <div className="weather-details">
         <div className="sunrise">

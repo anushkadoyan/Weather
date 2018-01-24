@@ -12,7 +12,8 @@ class Today extends Component {
 
   render() {
     const {weatherNow, forecast} = this.props;
-
+    
+    // set up line graph data with {time, temp}
     if(forecast) {
       var graphList = forecast.map(day=> {
         return {time:moment.unix(day.dt).format('hh:mm A'), temp: Math.floor(day.main.temp)}
@@ -43,11 +44,6 @@ class Today extends Component {
             {weatherNow? weatherNow.name: ''}
           </div>
         </div>
-        {/* {weatherNow.main? weatherNow.main.temp_min: ''}
-        {weatherNow.main? weatherNow.main.temp_max: ''}
-        {weatherNow.main? weatherNow.main.pressure: ''}
-        {weatherNow.main? weatherNow.main.humidity: ''} */}
-        
       </div>
     );
   }

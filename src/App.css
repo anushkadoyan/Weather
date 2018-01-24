@@ -111,13 +111,13 @@ body, #root, .App {
 .day-of-week {
   font-size: 30px; }
 
-.temp {
-  font-size: 20vh;
-  display: inline-block; }
-
 .date {
   font-size: 5vh;
   padding: 10px 20px; }
+
+.temp {
+  font-size: 20vh;
+  display: inline-block; }
 
 .sun img {
   width: 50px;

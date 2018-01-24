@@ -6,7 +6,6 @@ class Header extends Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    
     this.state = {search:""};
   }
 

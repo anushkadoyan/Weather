@@ -24,10 +24,9 @@ class App extends Component {
     let weatherNow = "http://api.openweathermap.org/data/2.5/weather?zip="+search+",us&appid=f78d4401108f0b44150be20d3e4e7146&units=imperial";
     let weatherForecast = "http://api.openweathermap.org/data/2.5/forecast?zip="+search+",us&appid=f78d4401108f0b44150be20d3e4e7146&units=imperial";
    
+    // call the api for the weather NOW and the feather for 5 days
     axios.get(weatherNow)
       .then(response => {
-        console.log(response.data)
-
         this.setState({weatherNow:response.data})
       })
       .catch(error => console.log(error));
@@ -37,6 +36,8 @@ class App extends Component {
        var currentDay = moment();
        var dayChunks = [];
        var day=[];
+
+       // convert an array of 3 hour windows into an array of days
        hourlyList.forEach(time=> {
         if(currentDay.isSame( moment.unix(time.dt), 'day')) {
           day.push(time);
@@ -46,6 +47,8 @@ class App extends Component {
             day=[time];
           }
        });
+
+       // set the state to the days we created
        this.setState({
          hourlyWeatherToday: dayChunks[0],
          hourlyWeatherOtherDays:  dayChunks.slice(1, dayChunks.length)
@@ -55,6 +58,10 @@ class App extends Component {
   }
 
   render() {
+
+    // api icon reveals what time of day it is by using 'n' or 'd' (night/day)
+    // use that to display night/day gif background
+    
     if(this.state.weatherNow.weather!==undefined) {
       let icon = this.state.weatherNow.weather[0].icon;
       let nightOrDay = icon[icon.length-1];
@@ -65,15 +72,15 @@ class App extends Component {
       
       let backgroundTime = nightOrDay==='n'? '-night0.gif':'-day0.gif';
       try {
-        var background = require('../images/'+this.state.weatherNow.weather[0].main.toLowerCase() + backgroundTime);
+        let weatherName = this.state.weatherNow.weather[0].main.toLowerCase();
+        if(weatherName=='haze') weatherName='fog';
+        var background = require('../images/'+weatherName + backgroundTime);
       } catch(error) {
         var background = require('../images/first-time.gif');
-        
         console.log(error)
       }
     } 
     var firstTimeBackround = require('../images/first-time.gif');
-    
     return (
       <div className="App" style={{backgroundImage: this.state.firstTime? "url("+firstTimeBackround+")" : ""}}>
         <Header onSearchChange={this.handleSearchChange}/>

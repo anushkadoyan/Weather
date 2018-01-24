@@ -24,7 +24,6 @@ class SimpleLineChart extends Component {
     	<LineChart width={600} height={300} data={list}
             margin={{top: 20, right: 30, left: 20, bottom: 10}}>
        <XAxis dataKey="time" height={60} tick={<CustomizedAxisTick/>}/>
-       {/* <Tooltip/> */}
        <Line strokeWidth={5} type="monotone" dataKey="temp" stroke="#8884d8" label={<CustomizedLabel stroke={'white'} />}/>
       </LineChart>
     );

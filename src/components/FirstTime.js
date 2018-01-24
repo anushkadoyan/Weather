@@ -4,15 +4,8 @@ import '../App.css';
 class FirstTime extends Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.state = {search:""};
-  }
-
-
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props.onSearchChange(this.state.search)
   }
 
   handleChange(value) {
