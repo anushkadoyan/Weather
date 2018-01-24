@@ -11,15 +11,15 @@ class Today extends Component {
 
   render() {
     const {weatherNow, forecast} = this.props;
-    if(weatherNow.weather!=undefined) {
+    if(weatherNow.weather!==undefined) {
       var background = require('../../public/'+weatherNow.weather[0].main.toLowerCase() + '-day.gif');
     } 
     if(forecast) {
-      console.log("today forecast", forecast)
+      // console.log("today forecast", forecast)
       var graphList = forecast.map(day=> {
         return {time:moment(day.dt_txt).format('hh:mm A'), temp: Math.floor(day.main.temp)}
       })
-      console.log(graphList)
+      // console.log(graphList)
     }
     
     

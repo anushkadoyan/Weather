@@ -15,14 +15,9 @@ class OtherDays extends Component {
   }
   
   loadDays(casts) {
-    let list = casts.forecast.list;
-    let otherDays = [];
-    if(list!=undefined) {
-      for (var i = 8; i < list.length; i += 8) {
-        let day = list.slice(i, i+8);
-        otherDays.push(day);
-      }
-    this.setState({forecast:otherDays});
+    let list = casts.forecast;
+    if(list!==undefined) {
+      this.setState({forecast:list});
     }
   }
 

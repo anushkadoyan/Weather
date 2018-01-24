@@ -7,9 +7,9 @@ class Day extends Component {
   }
 
 
-
   render() {
     const {days} = this.props;
+    console.log(days)
     return (
       <div className="day flex-1">
         {Math.floor(days[0].main.temp)+'°'}

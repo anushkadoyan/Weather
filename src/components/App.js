@@ -27,18 +27,33 @@ class App extends Component {
       .catch(error => console.log(error));
     axios.get(weatherForecast)
       .then(response => {
+
        let hourlyList = response.data.list;
-       hourlyList = hourlyList.filter(item=> {
-        return moment(item.dt_txt).isSame(moment(), 'day');
+       var currentDay = moment();
+       var dayChunks = [];
+       var day=[];
+       var sum = 0;
+       hourlyList.forEach(time=> {
+        if(currentDay.isSame(time.dt_txt, 'day')) {
+          day.push(time);
+        } else {
+            dayChunks.push(day);
+            currentDay = currentDay.add(1, 'days');
+            day=[time];
+        }
        });
-        this.setState({hourlyWeatherToday:hourlyList})
+       
+       this.setState({
+         hourlyWeatherToday: dayChunks[0],
+         hourlyWeatherOtherDays:  dayChunks.slice(1, dayChunks.length)
+        })
+       
       })
       .catch(error => console.log(error));
-
   }
 
   render() {
-    if(this.state.weatherNow.weather!=undefined) {
+    if(this.state.weatherNow.weather!==undefined) {
       // console.log(this.state.weatherNow.weather[0]);
       var background = require('../../public/'+this.state.weatherNow.weather[0].main.toLowerCase() + '-day.gif');
     } 
