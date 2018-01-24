@@ -58,7 +58,12 @@ class App extends Component {
     if(this.state.weatherNow.weather!==undefined) {
       let icon = this.state.weatherNow.weather[0].icon;
       let nightOrDay = icon[icon.length-1];
-      let backgroundTime = nightOrDay==='n'? '-night.gif':'-day.gif';
+
+      // TODO: pick a random file based on a random number from 0-2.
+      // for now, pick first one
+      // var random = Math.floor(Math.random() * 3);
+      
+      let backgroundTime = nightOrDay==='n'? '-night0.gif':'-day0.gif';
       try {
         var background = require('../images/'+this.state.weatherNow.weather[0].main.toLowerCase() + backgroundTime);
       } catch(error) {

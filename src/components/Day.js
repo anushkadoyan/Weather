@@ -27,7 +27,7 @@ class Day extends Component {
         </div>
         <div className = "flex flex-between">
           <WeatherDetails weather={averageDay}/>
-          <img class="weather-icon" src={'http://openweathermap.org/img/w/'+averageDay.weather[0].icon+'.png'}/>
+          <img className="weather-icon" src={'http://openweathermap.org/img/w/'+averageDay.weather[0].icon+'.png'}/>
         </div>
       </div>
     );
