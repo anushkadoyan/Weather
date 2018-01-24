@@ -4,6 +4,8 @@ html {
 
 body, #root, .App {
   height: 100%;
+  font-family: 'Heebo', sans-serif !important;
+  font-family: 'Josefin Sans', sans-serif !important;
 }
 
 
@@ -13,7 +15,7 @@ body, #root, .App {
 }
 
 .header {
-  background-color: rgb(10, 170, 233);
+  background-color: #005171;
   height: 20px;
   padding: 20px;
   color: white;
@@ -37,11 +39,28 @@ body, #root, .App {
   }
 }
 
+.today {
+  color: white;
+}
+
+
+.temp {
+  font-size: 20vh;
+}
+
 
 
 .main-container {
   height: calc(100% - 60px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
+
+
+
+
 
 // .today {
 //   flex: 4;
